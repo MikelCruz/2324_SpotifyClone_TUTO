@@ -8,6 +8,8 @@ import SupabaseProvider from '@/providers/SupabaseProvider'
 
 import './globals.css'
 
+import { MyUserContextProvider }from '../hooks/useUser';
+
 const font = Figtree({ subsets: ['latin'] })
 
 export const metadata = {
@@ -27,12 +29,14 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        <ToasterProvider />
-        <SupabaseProvider>
+        <MyUserContextProvider>
+          <ToasterProvider />
+          <SupabaseProvider>
             <Sidebar songs={userSongs}>
               {children}
             </Sidebar>
-        </SupabaseProvider>
+          </SupabaseProvider>
+        </MyUserContextProvider>
       </body>
     </html>
   )
