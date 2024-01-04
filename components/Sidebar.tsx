@@ -6,6 +6,7 @@ import { twMerge } from "tailwind-merge";
 import { usePathname } from "next/navigation";
 
 import { Song } from "@/types";
+import usePlayer from "@/hooks/usePlayer";
 
 import SidebarItem from "./SidebarItem";
 import Box from "./Box";
@@ -19,6 +20,7 @@ interface SidebarProps {
 
 const Sidebar = ({ children, songs }: SidebarProps) => {
   const pathname = usePathname();
+  const player = usePlayer();
 
   const routes = useMemo(() => [
     {
@@ -40,7 +42,8 @@ const Sidebar = ({ children, songs }: SidebarProps) => {
       className={twMerge(`
         flex 
         h-full
-        `
+        `,
+        player.activeId && 'h-[calc(100%-80px)]'
       )}
     >
       <div 
