@@ -6,7 +6,7 @@ import { toast } from 'react-hot-toast';
 import useSubscribeModal from '@/hooks/useSubscribeModal';
 import { useUser } from '@/hooks/useUser';
 import { postData } from '@/libs/helpers';
-import { getStripe } from '@/libs/stripeClient';
+import { getStripe } from "../libs/stripeClient";
 import { Price, ProductWithPrice } from '@/types';
 
 import Modal from './Modal';
