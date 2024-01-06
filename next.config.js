@@ -8,7 +8,7 @@ const nextConfig = {
     ]
   },
   webpack: (config) => {
-    config.resolve.alias['@'] = path.resolve(__dirname, '.'); // Ajusta la ruta según tu estructura de carpetas.
+    config.resolve.alias['@'] = path.resolve(__dirname, '..'); // Ajusta la ruta según tu estructura de carpetas.
     return config;
   },
 }
